@@ -37,6 +37,6 @@ fn hello() -> String {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    println!(hello().await);
+    println!("{}", hello().await);
     Ok(())
 }
