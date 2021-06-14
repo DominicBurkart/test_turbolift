@@ -31,12 +31,12 @@ fn load_container_into_kind(tag: &str) -> anyhow::Result<&str> {
 /// function to distribute. Note this non-async call is turned into
 /// an async call.
 #[on(K8S)]
-fn current_time() -> String {
+fn hello() -> String {
     "Hello, world!".to_string()
 }
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    println!("time in cluster: {}", current_time().await);
+    println!(hello().await);
     Ok(())
 }
