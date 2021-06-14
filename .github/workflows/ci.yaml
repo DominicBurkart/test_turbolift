@@ -24,6 +24,6 @@ jobs:
         run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/DominicBurkart/turbolift/master/examples/kubernetes_example/setup_cluster.sh | sh -s
       - uses: actions/checkout@v2
         with:
-          path: './test_turbolift'
+          path: './turbolift_example'
       - name: run
-        run: cd test_turbolift && RUSTFLAGS='--cfg procmacro2_semver_exempt' cargo run
+        run: cd turbolift_example && RUSTFLAGS='--cfg procmacro2_semver_exempt' cargo run
