@@ -2,8 +2,12 @@
 /// instead of from source. Like all libs using proc_macro2's unstable features,
 /// at writing this project needs to be run with semver exemption, like
 /// `RUSTFLAGS='--cfg procmacro2_semver_exempt' cargo run`.
-use std::time::{SystemTime, Instant};
 use std::error::Error;
+#[macro_use]
+extern crate lazy_static;
+
+#[macro_use]
+extern crate turbolift;
 
 // Instantiate cluster interface.
 lazy_static! {
