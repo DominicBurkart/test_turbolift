@@ -5,7 +5,7 @@
 use std::error::Error;
 #[macro_use]
 extern crate lazy_static;
-use std::sync::Mutex;
+use tokio::sync::Mutex;
 use turbolift::{on, kubernetes::K8s, tracing};
 
 // Instantiate cluster interface.
