@@ -2,7 +2,9 @@
 /// instead of from source. Like all libs using proc_macro2's unstable features,
 /// at writing this project needs to be run with semver exemption, like
 /// `RUSTFLAGS='--cfg procmacro2_semver_exempt' cargo run`.
+
 use std::error::Error;
+
 #[macro_use]
 extern crate lazy_static;
 use tokio::sync::Mutex;
@@ -32,7 +34,8 @@ fn load_container_into_kind(tag: String) -> anyhow::Result<String> {
 }
 
 /// function to distribute. Note this non-async call is turned into
-/// an async call.
+/// an async call that returns an anyhow::Result<String> instead of
+/// a String.
 #[on(K8S)]
 fn hello() -> String {
     "Hello, world!".to_string()
@@ -40,7 +43,6 @@ fn hello() -> String {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    let greeting = hello().await.expect("error getting greeting");
-    println!("{}", greeting);
+    println!("{}", hello().await?);
     Ok(())
 }
