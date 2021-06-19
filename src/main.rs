@@ -5,9 +5,8 @@
 use std::error::Error;
 #[macro_use]
 extern crate lazy_static;
-
-#[macro_use]
-extern crate turbolift;
+use std::sync::Mutex;
+use turbolift::{on, kubernetes::K8s, tracing};
 
 // Instantiate cluster interface.
 lazy_static! {
@@ -21,7 +20,7 @@ lazy_static! {
 
 /// Tells the cluster to make images accessible by sending them
 /// to kind (https://kind.sigs.k8s.io/).
-fn load_container_into_kind(tag: &str) -> anyhow::Result<&str> {
+fn load_container_into_kind(tag: String) -> anyhow::Result<String> {
     std::process::Command::new("kind")
         .args(
             format!("load docker-image {}", tag)
@@ -41,6 +40,7 @@ fn hello() -> String {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    println!("{}", hello().await);
+    let greeting = hello().await.expect("error getting greeting");
+    println!("{}", greeting);
     Ok(())
 }
