@@ -13,7 +13,7 @@ use turbolift::{on, kubernetes::K8s, tracing};
 // Instantiate cluster interface.
 lazy_static! {
     static ref K8S: Mutex<K8s> = Mutex::new(
-        K8s::with_deploy_function_and_max_replicas(
+        K8s::new(
             Box::new(load_container_into_kind),
             2
         )
