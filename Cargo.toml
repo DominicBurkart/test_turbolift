@@ -10,7 +10,7 @@ edition = "2018"
 "distributed" = ["turbolift/distributed"]
 
 [dependencies]
-turbolift = "0.1.7"
+turbolift = "0.1.8"
 tokio = "1"
 anyhow = "1"
 lazy_static = "1.4.0"
