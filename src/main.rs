@@ -38,11 +38,11 @@ fn load_container_into_kind(tag: String) -> anyhow::Result<String> {
 /// a String.
 #[on(K8S)]
 fn hello() -> String {
-    "Hello, world!".to_string()
+    "World".to_string()
 }
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    println!("{}", hello().await?);
+    println!("Hello {}!", hello().await?);
     Ok(())
 }
