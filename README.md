@@ -6,7 +6,7 @@ If you'd like, you can use it as a template for getting started with a Turbolift
 Remember that, as of writing, some of the span manipulation done by turbolift requires an unstable feature. Include 
 the relevant compiler flags while running or building your project: 
 ```sh
-RUSTFLAGS='--cfg procmacro2_semver_exempt' cargo run --features distributed
+RUSTFLAGS='--cfg procmacro2_semver_exempt -Z macro-backtrace' cargo run +nightly --features distributed
 # or
-RUSTFLAGS='--cfg procmacro2_semver_exempt' cargo build --features distributed
+RUSTFLAGS='--cfg procmacro2_semver_exempt -Z macro-backtrace' cargo build +nightly --features distributed
 ```
