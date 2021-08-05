@@ -1,5 +1,7 @@
 # Turbolift Example Repo
 
+[![ci](https://github.com/DominicBurkart/turbolift_example/actions/workflows/ci.yaml/badge.svg)](https://github.com/DominicBurkart/turbolift_example/actions/workflows/ci.yaml)
+
 This repo exists to test that [Turbolift](https://dominic.computer/turbolift) works when installed via cargo instead of via source.
 If you'd like, you can use it as a template for getting started with a Turbolift project! 
 
